@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+//近似求根号，通过牛顿法，就是通过泰勒展开；
+double f(double x, double k){
+    return x * x - k;
+}
+
+double dif(double x){
+    return 2 * x;
+}
+int main(){
+    double k;
+    double e;
+    cin >> k >> e;
+    double x = e;
+    while(abs(f(x, k)) > e){
+        x = -1 * f(x, k) / dif(x) + x;
+    }
+    cout << x << endl;
+    return 0;
+}
